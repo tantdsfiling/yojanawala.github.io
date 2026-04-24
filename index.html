@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Pata karo — kin sarkari schemes ke liye aap eligible hain. 2 minute mein, bilkul free."/>
+<meta property="og:title" content="YojanaWala — Apni Sarkari Schemes Khojo"/>
+<meta property="og:description" content="2 minute mein janiye — kaunsi government schemes aapke liye hain. Bilkul free."/>
+<title>YojanaWala — Apni Sarkari Schemes Khojo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --saffron:#FF6B00;--saffron2:#FF8C3A;--sg:rgba(255,107,0,0.12);
+  --green:#0A7B3E;--navy:#0D1B3E;--gold:#F5C518;
+  --white:#fff;--muted:rgba(255,255,255,0.52);--radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--navy);min-height:100vh;overflow-x:hidden;}
+.hf{font-family:'Baloo 2',sans-serif;}
+
+/* BG */
+.bg{position:fixed;inset:0;z-index:0;}
+.bg-g{position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% 20%,rgba(255,107,0,0.09) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 70% at 90% 85%,rgba(10,123,62,0.07) 0%,transparent 55%),
+    linear-gradient(160deg,#0D1B3E 0%,#101f45 60%,#0D1B3E 100%);}
+.bg-grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,107,0,0.03) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,107,0,0.03) 1px,transparent 1px);
+  background-size:44px 44px;}
+
+/* TRICOLOR */
+.tri{height:4px;background:linear-gradient(90deg,#FF9933 33.33%,#fff 33.33% 66.66%,#138808 66.66%);position:relative;z-index:10;}
+
+.app{position:relative;z-index:1;min-height:100vh;padding-bottom:60px;}
+
+/* HEADER */
+.hdr{text-align:center;padding:36px 20px 0;}
+.logo-wrap{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px;}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--saffron),var(--saffron2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.logo-text{font-family:'Baloo 2',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.3px;}
+.logo-text span{color:var(--saffron);}
+.tagline{display:inline-block;font-size:12px;color:rgba(255,255,255,0.38);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:4px 14px;margin-bottom:22px;letter-spacing:0.3px;}
+.mtitle{font-family:'Baloo 2',sans-serif;font-size:clamp(22px,5.5vw,46px);font-weight:800;line-height:1.15;color:#fff;margin-bottom:10px;}
+.accent{color:var(--saffron);}
+.msub{font-size:clamp(13px,2.8vw,15px);color:var(--muted);max-width:400px;margin:0 auto 22px;line-height:1.65;}
+.stats{display:flex;justify-content:center;gap:20px;margin-bottom:28px;flex-wrap:wrap;}
+.stat .n{font-family:'Baloo 2',sans-serif;font-size:20px;font-weight:800;color:var(--saffron);text-align:center;}
+.stat .l{font-size:11px;color:rgba(255,255,255,0.3);margin-top:1px;text-align:center;}
+
+/* TRUST BADGES */
+.trust{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:28px;}
+.tbadge{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,0.45);background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:100px;padding:5px 12px;}
+.tbadge-dot{width:5px;height:5px;border-radius:50%;background:var(--green);}
+
+/* LANG SCREEN */
+#ls{display:flex;flex-direction:column;align-items:center;padding:0 20px;}
+.lp{font-family:'Baloo 2',sans-serif;font-size:17px;font-weight:700;color:rgba(255,255,255,0.78);margin-bottom:16px;text-align:center;}
+.lcards{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:400px;width:100%;}
+.lcard{background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,107,0,0.18);border-radius:var(--radius);padding:22px 14px;text-align:center;cursor:pointer;transition:all .22s ease;}
+.lcard:hover{border-color:var(--saffron);transform:translateY(-3px);box-shadow:0 12px 32px rgba(255,107,0,0.15);}
+.lflag{font-size:34px;margin-bottom:8px;}
+.lname{font-family:'Baloo 2',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:3px;}
+.lsub{font-size:11px;color:rgba(255,255,255,0.34);}
+
+/* FORM */
+#fs{display:none;padding:0 16px;}
+.fw{max-width:540px;margin:0 auto;}
+.pw{margin-bottom:24px;}
+.pt{display:flex;justify-content:space-between;margin-bottom:7px;}
+.pl{font-size:10px;color:rgba(255,255,255,0.34);letter-spacing:.6px;}
+.pc{font-size:10px;color:var(--saffron);font-weight:600;}
+.pb{height:3px;background:rgba(255,255,255,0.07);border-radius:99px;overflow:hidden;}
+.pf{height:100%;background:linear-gradient(90deg,var(--saffron),var(--gold));border-radius:99px;transition:width .4s ease;}
+.qc{background:rgba(255,255,255,0.034);border:1px solid rgba(255,107,0,0.12);border-radius:20px;padding:24px 20px;margin-bottom:14px;backdrop-filter:blur(8px);animation:su .32s ease;}
+@keyframes su{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.qs{display:inline-block;font-size:10px;font-weight:700;color:var(--saffron);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:7px;}
+.qq{font-family:'Baloo 2',sans-serif;font-size:clamp(16px,3.8vw,20px);font-weight:700;color:#fff;line-height:1.35;margin-bottom:16px;}
+.opts{display:grid;gap:8px;}
+.opt{width:100%;padding:11px 14px;background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,255,255,0.08);border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:10px;text-align:left;color:rgba(255,255,255,0.72);font-family:'Baloo 2',sans-serif;font-size:14px;transition:all .16s ease;}
+.opt:hover{border-color:var(--saffron);background:var(--sg);color:#fff;transform:translateX(3px);}
+.opt.sel{border-color:var(--saffron);background:rgba(255,107,0,0.11);color:#fff;}
+.oico{font-size:18px;min-width:24px;text-align:center;}
+.otxt{flex:1;line-height:1.3;}
+.tinp{width:100%;padding:13px 14px;background:rgba(255,255,255,0.05);border:1.5px solid rgba(255,107,0,0.16);border-radius:10px;color:#fff;font-family:'Baloo 2',sans-serif;font-size:15px;outline:none;transition:border-color .2s;}
+.tinp:focus{border-color:var(--saffron);}
+.tinp::placeholder{color:rgba(255,255,255,0.2);}
+.privacy-note{font-size:11px;color:rgba(255,255,255,0.28);text-align:center;margin-top:8px;line-height:1.5;}
+.nb{width:100%;padding:14px;background:linear-gradient(135deg,var(--saffron),var(--saffron2));border:none;border-radius:11px;cursor:pointer;font-family:'Baloo 2',sans-serif;font-size:15px;font-weight:700;color:#fff;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;box-shadow:0 7px 20px rgba(255,107,0,0.26);}
+.nb:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(255,107,0,0.34);}
+.nb:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none;}
+
+/* SUBMITTING */
+#sub-screen{display:none;padding:60px 20px;text-align:center;}
+.sub-ring{width:56px;height:56px;margin:0 auto 20px;border:3px solid rgba(255,107,0,0.15);border-top-color:var(--saffron);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sub-txt{font-family:'Baloo 2',sans-serif;font-size:17px;color:rgba(255,255,255,0.65);animation:fade 1.5s infinite;}
+@keyframes fade{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* RESULTS */
+#rs{display:none;padding:0 16px;}
+.rw{max-width:620px;margin:0 auto;}
+.rh{text-align:center;margin-bottom:24px;}
+.re{font-size:48px;margin-bottom:10px;}
+.rt{font-family:'Baloo 2',sans-serif;font-size:clamp(18px,4.5vw,24px);font-weight:800;color:#fff;margin-bottom:7px;line-height:1.25;}
+.rsub{font-size:13px;color:var(--muted);line-height:1.65;max-width:380px;margin:0 auto;}
+
+/* Scheme card */
+.sc{background:rgba(255,255,255,0.035);border:1px solid rgba(255,107,0,0.14);border-radius:16px;padding:20px 18px;margin-bottom:12px;position:relative;overflow:hidden;animation:su .4s ease both;}
+.sc::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--saffron),var(--gold));}
+.sh{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.sico{font-size:22px;min-width:32px;text-align:center;}
+.sname{font-family:'Baloo 2',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.3;}
+.stag{display:inline-block;font-size:9px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(255,107,0,0.11);color:var(--saffron);letter-spacing:.5px;text-transform:uppercase;}
+.sdesc{font-size:13px;color:rgba(255,255,255,0.58);line-height:1.7;margin-bottom:10px;padding-left:42px;}
+.sbens{padding-left:42px;margin-bottom:10px;}
+.ben{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:rgba(255,255,255,0.68);margin-bottom:5px;line-height:1.5;}
+.bd{width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:5px;flex-shrink:0;}
+.ssteps{padding-left:42px;margin-bottom:10px;}
+.stlbl{font-size:9px;font-weight:700;color:var(--saffron);letter-spacing:.9px;text-transform:uppercase;margin-bottom:5px;}
+.sitem{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:4px;padding-left:10px;position:relative;}
+.sitem::before{content:'→';position:absolute;left:0;color:var(--saffron);}
+.slink{margin-left:42px;display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--saffron);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(255,107,0,0.28);padding-bottom:1px;}
+.slink:hover{border-color:var(--saffron);}
+
+/* No schemes */
+.nosc{text-align:center;padding:28px;color:var(--muted);font-size:14px;line-height:1.7;}
+
+/* Share box */
+.sharebox{background:linear-gradient(135deg,rgba(255,107,0,0.08),rgba(10,123,62,0.05));border:1px solid rgba(255,107,0,0.18);border-radius:16px;padding:22px;text-align:center;margin-top:24px;}
+.stitle2{font-family:'Baloo 2',sans-serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:5px;}
+.ssub{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.6;}
+.sbtns{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
+.wbtn{display:inline-flex;align-items:center;gap:6px;padding:11px 18px;background:linear-gradient(135deg,#25D366,#1DA851);border:none;border-radius:9px;cursor:pointer;font-family:'Baloo 2',sans-serif;font-size:14px;font-weight:700;color:#fff;text-decoration:none;transition:all .2s;}
+.wbtn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,0.26);}
+.rbtn{display:block;width:100%;padding:12px;margin-top:10px;background:transparent;border:1.5px solid rgba(255,255,255,0.1);border-radius:9px;cursor:pointer;font-family:'Baloo 2',sans-serif;font-size:14px;color:rgba(255,255,255,0.4);transition:all .2s;}
+.rbtn:hover{border-color:rgba(255,255,255,0.24);color:#fff;}
+
+/* SUCCESS toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:rgba(10,123,62,0.95);color:#fff;padding:12px 22px;border-radius:100px;font-size:13px;z-index:999;font-family:'Baloo 2',sans-serif;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap;}
+.toast.show{opacity:1;}
+
+/* Footer */
+.footer{text-align:center;padding:18px 16px;font-size:11px;color:rgba(255,255,255,0.16);position:relative;z-index:1;line-height:1.8;}
+.footer a{color:rgba(255,255,255,0.25);text-decoration:none;}
+.footer a:hover{color:rgba(255,255,255,0.45);}
+
+/* Scroll top */
+.stbtn{position:fixed;bottom:22px;right:18px;width:38px;height:38px;background:var(--saffron);border:none;border-radius:50%;cursor:pointer;font-size:16px;color:#fff;display:none;align-items:center;justify-content:center;z-index:100;box-shadow:0 4px 14px rgba(255,107,0,0.36);}
+.stbtn.show{display:flex;}
+
+/* Error */
+.erbox{background:rgba(220,38,38,0.1);border:1px solid rgba(220,38,38,0.28);border-radius:10px;padding:14px 18px;color:rgba(255,120,120,0.9);font-size:13px;margin-bottom:14px;display:none;line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="tri"></div>
+<div class="bg"><div class="bg-g"></div><div class="bg-grid"></div></div>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="logo-wrap">
+      <div class="logo-icon">🏛️</div>
+      <div class="logo-text">Yojana<span>Wala</span></div>
+    </div>
+    <div class="tagline" id="tagline">India ka sabse trusted scheme checker</div>
+    <h1 class="mtitle hf" id="mtitle">अपनी <span class="accent">सरकारी योजनाएं</span> खोजो</h1>
+    <p class="msub hf" id="msub">2 मिनट में जानिए — कौन सी सरकारी योजनाएं सिर्फ आपके लिए हैं</p>
+    <div class="stats">
+      <div class="stat"><div class="n">1500+</div><div class="l hf" id="s1">Active Schemes</div></div>
+      <div class="stat"><div class="n">₹0</div><div class="l hf" id="s2">Zero Fee</div></div>
+      <div class="stat"><div class="n">2 min</div><div class="l hf" id="s3">Results</div></div>
+    </div>
+    <div class="trust">
+      <span class="tbadge"><span class="tbadge-dot"></span><span id="tb1">Data from myscheme.gov.in</span></span>
+      <span class="tbadge"><span class="tbadge-dot"></span><span id="tb2">No login required</span></span>
+      <span class="tbadge"><span class="tbadge-dot"></span><span id="tb3">100% Free</span></span>
+    </div>
+  </div>
+
+  <!-- LANGUAGE -->
+  <div id="ls">
+    <p class="lp hf">अपनी भाषा चुनें / Choose Your Language</p>
+    <div class="lcards">
+      <div class="lcard" onclick="setLang('hi')">
+        <div class="lflag">🇮🇳</div>
+        <div class="lname hf">हिंदी</div>
+        <div class="lsub">देवनागरी लिपि</div>
+      </div>
+      <div class="lcard" onclick="setLang('en')">
+        <div class="lflag">🇬🇧</div>
+        <div class="lname">English</div>
+        <div class="lsub">Roman script</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div id="fs">
+    <div class="fw">
+      <div class="pw">
+        <div class="pt"><span class="pl" id="pl">PROGRESS</span><span class="pc" id="pc">1/9</span></div>
+        <div class="pb"><div class="pf" id="pf"></div></div>
+      </div>
+      <div class="erbox" id="erbox"></div>
+      <div id="qw"></div>
+      <p class="privacy-note" id="pvt">🔒 Your data is safe and will never be shared or sold</p>
+      <button class="nb hf" id="nb" onclick="nextStep()" disabled>
+        <span id="nl">अगला →</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SUBMITTING -->
+  <div id="sub-screen">
+    <div class="sub-ring"></div>
+    <p class="sub-txt hf" id="sub-txt">आपके लिए योजनाएं खोज रहे हैं...</p>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="rs">
+    <div class="rw">
+      <div class="rh">
+        <div class="re">🎉</div>
+        <h2 class="rt hf" id="rt"></h2>
+        <p class="rsub hf" id="rsub"></p>
+      </div>
+      <div id="sl"></div>
+      <div class="sharebox">
+        <p class="stitle2 hf" id="sh1"></p>
+        <p class="ssub hf" id="sh2"></p>
+        <div class="sbtns">
+          <a class="wbtn" id="wa" href="#" target="_blank">📱 WhatsApp pe Share karo</a>
+        </div>
+        <button class="rbtn hf" id="rb" onclick="restart()">🔄 Dobara Check Karo / Check Again</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2026 YojanaWala &nbsp;|&nbsp;
+    Data sourced from <a href="https://myscheme.gov.in" target="_blank">myscheme.gov.in</a> &nbsp;|&nbsp;
+    Always verify on official government portals before applying &nbsp;|&nbsp;
+    <a href="#">Privacy Policy</a>
+  </div>
+</div>
+
+<button class="stbtn" id="stbtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div class="toast" id="toast"></div>
+
+<script>
+// ── CONFIG ─────────────────────────────────────────────────
+var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzuou6aYFNg4Dj9vtmCjRJoe6JIkyVoaZMG-al6fIRiPLPLISYSjJXAM2vpWP5Cra064Q/exec';
+
+// ── STATE ──────────────────────────────────────────────────
+var lang='hi', step=0, ans={};
+
+// ── QUESTIONS ──────────────────────────────────────────────
+var Q={
+hi:[
+  {id:'name',type:'text',step:'आपका परिचय',q:'आपका नाम क्या है?',ph:'अपना नाम लिखें...'},
+  {id:'phone',type:'text',step:'संपर्क',q:'आपका WhatsApp नंबर?',ph:'10 अंकों का मोबाइल नंबर...',inp:'tel'},
+  {id:'state',type:'opts',step:'आपका राज्य',q:'आप किस राज्य में रहते हैं?',opts:[
+    {i:'🏙️',t:'दिल्ली / NCR'},{i:'🌾',t:'उत्तर प्रदेश'},{i:'🌿',t:'मध्य प्रदेश'},
+    {i:'🏔️',t:'राजस्थान'},{i:'🌊',t:'महाराष्ट्र'},{i:'🌴',t:'गुजरात'},
+    {i:'🌳',t:'बिहार / झारखंड'},{i:'🌺',t:'पश्चिम बंगाल'},{i:'🏝️',t:'तमिलनाडु / केरल'},
+    {i:'🗺️',t:'अन्य राज्य'}]},
+  {id:'profile',type:'opts',step:'आप कौन हैं',q:'आप इनमें से कौन हैं?',opts:[
+    {i:'💼',t:'नौकरीपेशा (Private / Govt Job)'},{i:'🏪',t:'व्यवसाय / दुकान / Self-employed'},
+    {i:'🎓',t:'Student'},{i:'👩',t:'गृहिणी / महिला'},{i:'🌾',t:'किसान'},{i:'👴',t:'Senior Citizen (60+)'}]},
+  {id:'income',type:'opts',step:'आमदनी',q:'घर की सालाना आमदनी कितनी है?',opts:[
+    {i:'💸',t:'₹1 लाख से कम'},{i:'💰',t:'₹1 – ₹2.5 लाख'},{i:'💵',t:'₹2.5 – ₹5 लाख'},
+    {i:'💴',t:'₹5 – ₹8 लाख'},{i:'💶',t:'₹8 – ₹12 लाख'},{i:'💷',t:'₹12 लाख से ज्यादा'}]},
+  {id:'age',type:'opts',step:'उम्र',q:'आपकी उम्र कितनी है?',opts:[
+    {i:'🧒',t:'18 – 25 साल'},{i:'🧑',t:'26 – 35 साल'},{i:'👨',t:'36 – 45 साल'},
+    {i:'🧓',t:'46 – 60 साल'},{i:'👴',t:'60 साल से ज्यादा'}]},
+  {id:'category',type:'opts',step:'श्रेणी',q:'आप किस श्रेणी में आते हैं?',opts:[
+    {i:'🔵',t:'General'},{i:'🟡',t:'OBC'},{i:'🔴',t:'SC / ST'},
+    {i:'🟢',t:'Minority (Muslim / Christian / Sikh / Buddhist)'}]},
+  {id:'house',type:'opts',step:'आवास',q:'क्या आपके पास खुद का पक्का मकान है?',opts:[
+    {i:'🏠',t:'हाँ, खुद का पक्का मकान है'},{i:'🏚️',t:'नहीं, किराए पर रहता/रहती हूँ'},
+    {i:'👨‍👩‍👧',t:'नहीं, परिवार के घर में हूँ (पक्का नहीं)'}]},
+  {id:'bank',type:'opts',step:'बैंक खाता',q:'क्या आपका बैंक खाता है?',opts:[
+    {i:'🏦',t:'हाँ, Savings Account है'},{i:'💳',t:'हाँ, Jan Dhan Account है'},{i:'❌',t:'नहीं है'}]},
+  {id:'land',type:'opts',step:'ज़मीन',q:'क्या आपके पास खेती की ज़मीन है?',opts:[
+    {i:'🌱',t:'हाँ, खुद की खेती की ज़मीन है'},{i:'🤲',t:'नहीं है / किराए की ज़मीन पर खेती'}]}
+],
+en:[
+  {id:'name',type:'text',step:'YOUR IDENTITY',q:'What is your name?',ph:'Enter your name...'},
+  {id:'phone',type:'text',step:'CONTACT',q:'Your WhatsApp number?',ph:'10-digit mobile number...',inp:'tel'},
+  {id:'state',type:'opts',step:'YOUR STATE',q:'Which state do you live in?',opts:[
+    {i:'🏙️',t:'Delhi / NCR'},{i:'🌾',t:'Uttar Pradesh'},{i:'🌿',t:'Madhya Pradesh'},
+    {i:'🏔️',t:'Rajasthan'},{i:'🌊',t:'Maharashtra'},{i:'🌴',t:'Gujarat'},
+    {i:'🌳',t:'Bihar / Jharkhand'},{i:'🌺',t:'West Bengal'},{i:'🏝️',t:'Tamil Nadu / Kerala'},
+    {i:'🗺️',t:'Other State'}]},
+  {id:'profile',type:'opts',step:'WHO ARE YOU',q:'Which best describes you?',opts:[
+    {i:'💼',t:'Salaried Employee (Private / Govt)'},{i:'🏪',t:'Business / Shop / Self-employed'},
+    {i:'🎓',t:'Student'},{i:'👩',t:'Homemaker / Woman'},{i:'🌾',t:'Farmer'},{i:'👴',t:'Senior Citizen (60+)'}]},
+  {id:'income',type:'opts',step:'INCOME',q:'What is your household annual income?',opts:[
+    {i:'💸',t:'Below ₹1 Lakh'},{i:'💰',t:'₹1 – ₹2.5 Lakh'},{i:'💵',t:'₹2.5 – ₹5 Lakh'},
+    {i:'💴',t:'₹5 – ₹8 Lakh'},{i:'💶',t:'₹8 – ₹12 Lakh'},{i:'💷',t:'Above ₹12 Lakh'}]},
+  {id:'age',type:'opts',step:'AGE',q:'What is your age?',opts:[
+    {i:'🧒',t:'18 – 25 years'},{i:'🧑',t:'26 – 35 years'},{i:'👨',t:'36 – 45 years'},
+    {i:'🧓',t:'46 – 60 years'},{i:'👴',t:'60+ years'}]},
+  {id:'category',type:'opts',step:'CATEGORY',q:'Which category do you belong to?',opts:[
+    {i:'🔵',t:'General'},{i:'🟡',t:'OBC'},{i:'🔴',t:'SC / ST'},
+    {i:'🟢',t:'Minority (Muslim / Christian / Sikh / Buddhist)'}]},
+  {id:'house',type:'opts',step:'HOUSING',q:'Do you own a pucca (permanent) house?',opts:[
+    {i:'🏠',t:'Yes, I own a pucca house'},{i:'🏚️',t:'No, I live on rent'},
+    {i:'👨‍👩‍👧',t:"No, I live in family's non-pucca house"}]},
+  {id:'bank',type:'opts',step:'BANK ACCOUNT',q:'Do you have a bank account?',opts:[
+    {i:'🏦',t:'Yes, Savings Account'},{i:'💳',t:'Yes, Jan Dhan Account'},{i:'❌',t:'No bank account'}]},
+  {id:'land',type:'opts',step:'LAND',q:'Do you own agricultural land?',opts:[
+    {i:'🌱',t:'Yes, I own agricultural land'},{i:'🤲',t:'No / I farm on leased land'}]}
+]};
+
+// ── SCHEMES DATABASE (loaded from schemes.json) ──────────────
+var ALL_SCHEMES = [];
+var SCHEMES_LOADED = false;
+
+function getRegionFile(state) {
+  var s = (state || '').toLowerCase();
+  var north = ['uttar pradesh','bihar','jharkhand','delhi','haryana','punjab',
+               'uttarakhand','himachal','jammu','kashmir','ladakh','chandigarh','rajasthan'];
+  var west  = ['maharashtra','gujarat','madhya pradesh','chhattisgarh','goa'];
+  var south = ['karnataka','kerala','tamil','andhra','telangana','odisha',
+               'west bengal','assam','meghalaya','manipur','mizoram','nagaland',
+               'arunachal','sikkim','tripura','puducherry'];
+  for(var i=0;i<north.length;i++){ if(s.indexOf(north[i])>-1) return 'schemes_north.json'; }
+  for(var i=0;i<west.length;i++){  if(s.indexOf(west[i])>-1)  return 'schemes_west.json';  }
+  for(var i=0;i<south.length;i++){ if(s.indexOf(south[i])>-1) return 'schemes_south.json'; }
+  return null;
+}
+
+function loadSchemes(callback) {
+  // Already fully loaded
+  if (SCHEMES_LOADED && ALL_SCHEMES.length > 0) {
+    callback();
+    return;
+  }
+
+  var userState = ans.state || '';
+  var regionFile = getRegionFile(userState);
+
+  function showError() {
+    document.getElementById('sub-screen').style.display = 'none';
+    document.getElementById('fs').style.display = 'block';
+    var eb = document.getElementById('erbox');
+    eb.textContent = lang === 'hi'
+      ? 'Database load नहीं हो पाया। Internet connection check करें और दोबारा try करें।'
+      : 'Could not load scheme database. Please check your internet and try again.';
+    eb.style.display = 'block';
+  }
+
+  function fetchJSON(url) {
+    return fetch(url, { cache: 'default' })
+      .then(function(r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      });
+  }
+
+  // Always load All India schemes first (149KB)
+  // Then load regional file in parallel if needed (60-100KB)
+  var fetches = [fetchJSON('schemes_india.json')];
+  if (regionFile) fetches.push(fetchJSON(regionFile));
+
+  Promise.all(fetches)
+    .then(function(results) {
+      var combined = results[0];
+      if (results[1]) combined = combined.concat(results[1]);
+      if (!combined.length) throw new Error('Empty');
+      ALL_SCHEMES = combined;
+      SCHEMES_LOADED = true;
+      callback();
+    })
+    .catch(function() {
+      // Fallback: try original single file
+      fetchJSON('schemes.json')
+        .then(function(data) {
+          ALL_SCHEMES = data;
+          SCHEMES_LOADED = true;
+          callback();
+        })
+        .catch(showError);
+    });
+}
+
+// ── ELIGIBILITY ENGINE ──────────────────────────────────────
+function getSchemes(a) {
+  var profile = (a.profile || '').toLowerCase();
+  var income  = (a.income  || '').toLowerCase();
+  var age     = (a.age     || '').toLowerCase();
+  var cat     = (a.category|| '').toLowerCase();
+  var state   = (a.state   || '');
+  var house   = (a.house   || '').toLowerCase();
+  var bank    = (a.bank    || '').toLowerCase();
+  var land    = (a.land    || '').toLowerCase();
+
+  // Map profile → relevant tags
+  var wantTags = [];
+
+  if (profile.indexOf('naukri') > -1 || profile.indexOf('salaried') > -1) {
+    wantTags = ['insurance','pension','loan','housing'];
+  } else if (profile.indexOf('business') > -1 || profile.indexOf('self') > -1 || profile.indexOf('dukaan') > -1) {
+    wantTags = ['business','loan','skill','insurance','health'];
+  } else if (profile.indexOf('student') > -1) {
+    wantTags = ['student','loan','skill'];
+  } else if (profile.indexOf('mahila') > -1 || profile.indexOf('woman') > -1 || profile.indexOf('homemaker') > -1 || profile.indexOf('grihini') > -1) {
+    wantTags = ['women','health','insurance','housing','pension'];
+  } else if (profile.indexOf('kisan') > -1 || profile.indexOf('farmer') > -1) {
+    wantTags = ['farmer','loan','insurance','solar','skill'];
+  } else if (profile.indexOf('senior') > -1 || profile.indexOf('60') > -1) {
+    wantTags = ['senior','pension','health','insurance'];
+  }
+
+  // Additional tags from category
+  if (cat.indexOf('sc') > -1 || cat.indexOf('st') > -1) wantTags.push('sc_st');
+  if (cat.indexOf('obc') > -1) wantTags.push('sc_st');
+  if (cat.indexOf('minority') > -1) wantTags.push('minority');
+  if (cat.indexOf('disabled') > -1 || cat.indexOf('divyang') > -1) wantTags.push('disabled');
+
+  // Housing need
+  if (house.indexOf('rent') > -1 || house.indexOf('pucca nahi') > -1 || house.indexOf('non-pucca') > -1 || house.indexOf('family') > -1) {
+    wantTags.push('housing');
+  }
+
+  // No bank account
+  if (bank.indexOf('nahi') > -1 || bank.indexOf('no bank') > -1) {
+    wantTags.push('loan');
+  }
+
+  // Has land
+  if (land.indexOf('haan') > -1 || land.indexOf('yes') > -1 || land.indexOf('kheti') > -1) {
+    wantTags.push('farmer');
+  }
+
+  // Normalize state for matching
+  var stateMap = {
+    'delhi / ncr': 'Delhi',
+    'uttar pradesh': 'Uttar Pradesh',
+    'madhya pradesh': 'Madhya Pradesh',
+    'rajasthan': 'Rajasthan',
+    'maharashtra': 'Maharashtra',
+    'gujarat': 'Gujarat',
+    'bihar / jharkhand': 'Bihar',
+    'west bengal': 'West Bengal',
+    'tamil nadu / kerala': 'Tamil Nadu',
+    'other state': ''
+  };
+  var userState = stateMap[state.toLowerCase()] || state;
+
+  // Score each scheme
+  var scored = [];
+  for (var i = 0; i < ALL_SCHEMES.length; i++) {
+    var s = ALL_SCHEMES[i];
+    var score = 0;
+
+    // State matching
+    var schemeState = s.st || 'All India';
+    if (schemeState === 'All India') {
+      score += 2;
+    } else if (userState && schemeState.indexOf(userState) > -1) {
+      score += 6; // Strong boost for state match
+    } else if (userState && userState.indexOf(schemeState) > -1) {
+      score += 6;
+    } else {
+      continue; // Skip schemes from other states entirely
+    }
+
+    // Tag matching
+    var sTags = s.tg || [];
+    var tagMatches = 0;
+    for (var j = 0; j < wantTags.length; j++) {
+      if (sTags.indexOf(wantTags[j]) > -1) {
+        tagMatches++;
+        score += 3;
+      }
+    }
+
+    // Boost if has description
+    if (s.d) score += 1;
+
+    // Only include if at least one tag matched or strong state match
+    if (tagMatches > 0 || (schemeState !== 'All India' && schemeState.indexOf(userState) > -1)) {
+      scored.push({ score: score, scheme: s });
+    }
+  }
+
+  // Sort by score descending
+  scored.sort(function(a, b){ return b.score - a.score; });
+
+  // Return top 20 — enough variety without overwhelming
+  return scored.slice(0, 20).map(function(item){ return item.scheme; });
+}
+
+// ── HELPERS ────────────────────────────────────────────────
+function showToast(msg,isErr){
+  var t=document.getElementById('toast');
+  t.textContent=msg;
+  t.style.background=isErr?'rgba(180,30,30,0.95)':'rgba(10,123,62,0.95)';
+  t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},3000);
+}
+
+function showErr(msg){
+  var b=document.getElementById('erbox');
+  b.textContent=msg;b.style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── SEND TO GOOGLE SHEET ────────────────────────────────────
+function sendToSheet(data){
+  fetch(SHEET_URL,{
+    method:'POST',
+    mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)
+  }).catch(function(){});
+  // no-cors means we won't get response — that's fine, fire and forget
+}
+
+// ── LANGUAGE & INIT ────────────────────────────────────────
+function setLang(l){
+  lang=l;
+  var h=l==='hi';
+  document.getElementById('mtitle').innerHTML=h?'अपनी <span class="accent">सरकारी योजनाएं</span> खोजो':'Find Your <span class="accent">Government Schemes</span>';
+  document.getElementById('msub').textContent=h?'2 मिनट में जानिए — कौन सी सरकारी योजनाएं सिर्फ आपके लिए हैं':'Find out in 2 minutes — which government schemes are made for you';
+  document.getElementById('tagline').textContent=h?'India ka sabse trusted scheme checker':'India\'s most trusted scheme finder';
+  document.getElementById('tb1').textContent=h?'Data from myscheme.gov.in':'Data from myscheme.gov.in';
+  document.getElementById('tb2').textContent=h?'Login की जरूरत नहीं':'No login required';
+  document.getElementById('tb3').textContent=h?'100% मुफ्त':'100% Free';
+  document.getElementById('pvt').textContent=h?'🔒 आपकी जानकारी सुरक्षित है — कभी share नहीं होगी':'🔒 Your data is safe and will never be shared';
+  document.getElementById('s1').textContent=h?'Active Schemes':'Active Schemes';
+  document.getElementById('s2').textContent=h?'कोई फीस नहीं':'Zero Fee';
+  document.getElementById('s3').textContent=h?'में Results':'Results';
+  document.getElementById('ls').style.display='none';
+  document.getElementById('fs').style.display='block';
+  step=0;ans={};
+  document.getElementById('erbox').style.display='none';
+  renderStep();
+}
+
+// ── RENDER STEP ────────────────────────────────────────────
+function renderStep(){
+  var qs=Q[lang],q=qs[step],total=qs.length;
+  var pct=Math.round((step/total)*100);
+  document.getElementById('pf').style.width=pct+'%';
+  document.getElementById('pl').textContent=lang==='hi'?'प्रगति':'PROGRESS';
+  document.getElementById('pc').textContent=(step+1)+'/'+total;
+  var isL=step===total-1;
+  document.getElementById('nl').textContent=isL?(lang==='hi'?'🔍 मेरी योजनाएं दिखाओ':'🔍 Show My Schemes'):(lang==='hi'?'अगला →':'Next →');
+  document.getElementById('nb').disabled=!ans[q.id];
+  document.getElementById('erbox').style.display='none';
+
+  var html='<div class="qc"><span class="qs hf">'+q.step+'</span><p class="qq hf">'+q.q+'</p>';
+  if(q.type==='text'){
+    html+='<input class="tinp hf" id="ti" type="'+(q.inp||'text')+'" placeholder="'+q.ph+'" value="'+(ans[q.id]||'')+'" oninput="oti(this.value)" autocomplete="off" inputmode="'+(q.id==="phone"?"numeric":"text")+'"/>';
+    html+='<div id="inline-err" style="display:none;margin-top:8px;font-size:12px;color:rgba(255,100,100,0.9);font-family:Baloo 2,sans-serif;padding-left:4px;"></div>';
+    if(q.id==='phone'){html+='<p style="margin-top:8px;font-size:11px;color:rgba(255,255,255,0.28);font-family:Baloo 2,sans-serif;">Example: 9876543210</p>';}
+  } else {
+    html+='<div class="opts">';
+    q.opts.forEach(function(o){
+      var s=ans[q.id]===o.t?'sel':'';
+      html+='<button class="opt '+s+'" onclick="pick(this,\''+o.t.replace(/'/g,"\\'")+'\')"><span class="oico">'+o.i+'</span><span class="otxt hf">'+o.t+'</span></button>';
+    });
+    html+='</div>';
+  }
+  html+='</div>';
+  document.getElementById('qw').innerHTML=html;
+
+  if(q.type==='text'){
+    setTimeout(function(){var el=document.getElementById('ti');if(el)el.focus();},80);
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function pick(btn,val){
+  document.querySelectorAll('.opt').forEach(function(b){b.classList.remove('sel');});
+  btn.classList.add('sel');
+  ans[Q[lang][step].id]=val;
+  document.getElementById('nb').disabled=false;
+}
+
+function oti(v){
+  var q=Q[lang][step];
+  var val=v.trim();
+  ans[q.id]=val;
+  var inp=document.getElementById('ti');
+  var errEl=document.getElementById('inline-err');
+
+  if(q.id==='phone'){
+    // Strip spaces and dashes
+    var digits=val.replace(/[\s\-]/g,'');
+    // Must be exactly 10 digits, starting with 6,7,8 or 9
+    var valid=/^[6-9][0-9]{9}$/.test(digits);
+    if(val.length>0 && !valid){
+      if(errEl){
+        errEl.textContent=lang==='hi'
+          ?'कृपया valid 10 अंकों का Indian mobile number डालें (6/7/8/9 से शुरू)'
+          :'Please enter a valid 10-digit Indian mobile number (starting with 6/7/8/9)';
+        errEl.style.display='block';
+      }
+      if(inp) inp.style.borderColor='rgba(220,38,38,0.7)';
+      document.getElementById('nb').disabled=true;
+    } else if(valid){
+      if(errEl) errEl.style.display='none';
+      if(inp) inp.style.borderColor='rgba(10,123,62,0.7)';
+      ans[q.id]=digits;
+      document.getElementById('nb').disabled=false;
+    } else {
+      if(errEl) errEl.style.display='none';
+      if(inp) inp.style.borderColor='rgba(255,107,0,0.16)';
+      document.getElementById('nb').disabled=true;
+    }
+  } else if(q.id==='name'){
+    // Name must be at least 2 chars and only letters/spaces
+    var nameValid=val.length>=2 && /^[a-zA-Z\u0900-\u097F\s]+$/.test(val);
+    if(val.length>0 && !nameValid){
+      if(errEl){
+        errEl.textContent=lang==='hi'
+          ?'कृपया valid नाम डालें (केवल अक्षर)'
+          :'Please enter a valid name (letters only)';
+        errEl.style.display='block';
+      }
+      if(inp) inp.style.borderColor='rgba(220,38,38,0.7)';
+      document.getElementById('nb').disabled=true;
+    } else if(nameValid){
+      if(errEl) errEl.style.display='none';
+      if(inp) inp.style.borderColor='rgba(10,123,62,0.7)';
+      document.getElementById('nb').disabled=false;
+    } else {
+      if(errEl) errEl.style.display='none';
+      if(inp) inp.style.borderColor='rgba(255,107,0,0.16)';
+      document.getElementById('nb').disabled=true;
+    }
+  } else {
+    document.getElementById('nb').disabled=val.length<2;
+  }
+}
+
+function nextStep(){
+  var qs=Q[lang];
+  var q=qs[step];
+
+  // Final phone validation gate before proceeding
+  if(q.id==='phone'){
+    var digits=(ans.phone||'').replace(/[\s\-]/g,'');
+    if(!/^[6-9][0-9]{9}$/.test(digits)){
+      var errEl=document.getElementById('inline-err');
+      if(errEl){
+        errEl.textContent=lang==='hi'
+          ?'कृपया valid 10 अंकों का Indian mobile number डालें'
+          :'Please enter a valid 10-digit Indian mobile number';
+        errEl.style.display='block';
+      }
+      return;
+    }
+    ans.phone=digits;
+  }
+
+  if(step<qs.length-1){
+    step++;renderStep();
+  } else {
+    submitForm();
+  }
+}
+
+// ── SUBMIT ──────────────────────────────────────────────────
+function submitForm(){
+  document.getElementById('fs').style.display='none';
+  document.getElementById('sub-screen').style.display='block';
+  document.getElementById('sub-txt').textContent=lang==='hi'?'आपके लिए योजनाएं खोज रहे हैं...':'Finding schemes for you...';
+
+  // Load scheme database first, then match
+  loadSchemes(function(){
+    try {
+      var schemes = getSchemes(ans);
+
+      // Send to Google Sheet (fire and forget)
+      try {
+        sendToSheet({
+          name: ans.name||'',
+          phone: ans.phone||'',
+          state: ans.state||'',
+          profile: ans.profile||'',
+          income: ans.income||'',
+          age: ans.age||'',
+          category: ans.category||'',
+          house: ans.house||'',
+          bank: ans.bank||'',
+          land: ans.land||'',
+          language: lang,
+          schemes: schemes.map(function(s){return s.n||s.name||'';}).join(', '),
+          total: schemes.length
+        });
+      } catch(sheetErr) {
+        console.warn('Sheet error (non-fatal):', sheetErr);
+      }
+
+      // Show results
+      setTimeout(function(){
+        document.getElementById('sub-screen').style.display='none';
+        showResults(schemes);
+      }, 800);
+
+    } catch(err) {
+      console.error('Error in scheme matching:', err);
+      document.getElementById('sub-screen').style.display='none';
+      document.getElementById('fs').style.display='block';
+      var eb = document.getElementById('erbox');
+      eb.textContent = lang==='hi'
+        ? 'कुछ गड़बड़ हुई। कृपया दोबारा try करें।'
+        : 'Something went wrong. Please try again.';
+      eb.style.display='block';
+    }
+  }); // end loadSchemes
+}
+
+// ── RESULTS ────────────────────────────────────────────────
+
+function getSchemeIcon(tags){
+  if(!tags||!tags.length) return '🏛️';
+  var iconMap = {
+    'farmer':'🌾','student':'🎓','women':'👩','senior':'👴',
+    'business':'🏪','health':'🏥','housing':'🏠','insurance':'🛡️',
+    'pension':'💰','loan':'💳','skill':'🛠️','solar':'☀️',
+    'sc_st':'🤝','minority':'🌙','disabled':'♿'
+  };
+  for(var i=0;i<tags.length;i++){
+    if(iconMap[tags[i]]) return iconMap[tags[i]];
+  }
+  return '🏛️';
+}
+
+function showResults(schemes){
+  document.getElementById('rs').style.display='block';
+  var h=lang==='hi';
+  var name=ans.name||(h?'आप':'You');
+
+  document.getElementById('rt').textContent=h
+    ?name+', आपके लिए '+schemes.length+' योजनाएं मिलीं 🎉'
+    :name+', we found '+schemes.length+' schemes for you 🎉';
+  document.getElementById('rsub').textContent=h
+    ?'नीचे देखें — इन सरकारी योजनाओं के लिए आप eligible हैं। अभी apply करें और अपना हक लें।'
+    :'See below — you are eligible for these government schemes. Apply now and claim what is yours.';
+
+  var list=document.getElementById('sl');
+  if(!schemes.length){
+    list.innerHTML='<div class="nosc hf">'+(h?'आपके profile के लिए और योजनाएं जल्द add होंगी। Official site: myscheme.gov.in':'More schemes for your profile coming soon. Check: myscheme.gov.in')+'</div>';
+  } else {
+    list.innerHTML=schemes.map(function(s,i){
+      // Handle new compact scheme format {n, st, tg, d, url}
+      var n = s.n || s.name || 'Government Scheme';
+      var schState = s.st || 'All India';
+      var desc = s.d || '';
+      var schUrl = s.u || s.url || 'https://www.myscheme.gov.in';
+      var tags = (s.tg || []).join(', ');
+      var ico = getSchemeIcon(s.tg || []);
+      var at = h ? 'Official Site पर Apply करें' : 'Apply on Official Site';
+      var stateLabel = schState !== 'All India' ? (' <span style="font-size:10px;opacity:0.6;">• '+schState+'</span>') : '';
+      return '<div class="sc" style="animation-delay:'+(i*0.07)+'s">'
+        +'<div class="sh"><div class="sico">'+ico+'</div>'
+        +'<div><div class="sname hf">'+n+stateLabel+'</div>'
+        +(tags?'<span class="stag">'+tags+'</span>':'')+'</div></div>'
+        +(desc?'<p class="sdesc hf">'+desc+'</p>':'')
+        +'<a class="slink" href="'+schUrl+'" target="_blank">🔗 '+at+' ↗</a>'
+        +'</div>';
+    }).join('');
+  }
+
+  document.getElementById('sh1').textContent=h?'क्या यह उपयोगी लगा?':'Found this useful?';
+  document.getElementById('sh2').textContent=h
+    ?'अपने 2 दोस्तों को share करो — उन्हें भी पता नहीं होगा कि वे किन योजनाओं के eligible हैं!'
+    :'Share with 2 friends — they probably don\'t know their eligible schemes either!';
+  document.getElementById('rb').textContent=h?'🔄 दोबारा Check करो':'🔄 Check Again';
+
+  var shareText=h
+    ?'मुझे '+schemes.length+' सरकारी योजनाएं मिलीं जिनके लिए मैं eligible हूँ! आप भी check करो — YojanaWala.in'
+    :'I found '+schemes.length+' government schemes I am eligible for! Check yours at YojanaWala.in';
+  document.getElementById('wa').href='https://wa.me/?text='+encodeURIComponent(shareText);
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function restart(){
+  step=0;ans={};
+  document.getElementById('rs').style.display='none';
+  document.getElementById('ls').style.display='flex';
+  document.getElementById('ls').style.flexDirection='column';
+  document.getElementById('ls').style.alignItems='center';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Preload All India schemes immediately on page load
+// Regional schemes load when user submits (we know their state by then)
+window.addEventListener('load', function() {
+  fetch('schemes_india.json', { cache: 'default' })
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      ALL_SCHEMES = data;
+      console.log('YojanaWala: ' + data.length + ' All India schemes preloaded');
+    })
+    .catch(function(){});
+});
+
+// Enter key
+document.addEventListener('keydown',function(e){
+  if(e.key==='Enter'&&document.getElementById('fs').style.display!=='none'){
+    var b=document.getElementById('nb');
+    if(!b.disabled)nextStep();
+  }
+});
+
+// Scroll top button
+window.addEventListener('scroll',function(){
+  var b=document.getElementById('stbtn');
+  if(window.scrollY>400)b.classList.add('show');
+  else b.classList.remove('show');
+});
+</script>
+</body>
+</html>
